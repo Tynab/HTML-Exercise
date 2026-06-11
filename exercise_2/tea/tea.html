@@ -1,82 +1,232 @@
 <!DOCTYPE html>
-<html>
+<!--
+    Summary:
+    - Trang menu Tea hiển thị danh sách trà, hình ảnh và bảng giá.
+    - Nội dung đã được chỉnh thành chủ đề Tea thay vì lặp lại nội dung Coffee.
+    - Các thuộc tính HTML cũ được chuyển sang CSS để code rõ và dễ bảo trì hơn.
+-->
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Tea Menu</title>
+
+    <style>
+        /* Page foundation: responsive width, readable text, and consistent spacing. */
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            color: #222;
+            background-color: #fffdf9;
+        }
+
+        .page {
+            width: min(100% - 32px, 1100px);
+            margin: 0 auto;
+            padding: 16px 0 40px;
+        }
+
+        .page-title {
+            margin: 0;
+            padding: 12px 16px;
+            text-align: center;
+            color: #fff;
+            background-color: #b91c1c;
+        }
+
+        .divider {
+            height: 3px;
+            margin: 16px 0;
+            border: 0;
+            background-color: #808080;
+        }
+
+        .drink-list {
+            font-size: 1.15rem;
+        }
+
+        .page-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .page-nav a {
+            color: #8f2f24;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .page-nav a:hover {
+            text-decoration: underline;
+        }
+
+        .image-row {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+            align-items: stretch;
+        }
+
+        .image-row img {
+            width: 100%;
+            height: 280px;
+            border: 10px solid #7f1d1d;
+            box-sizing: border-box;
+            object-fit: cover;
+        }
+
+        .intro {
+            text-align: justify;
+            font-size: 1.25rem;
+            color: #b91c1c;
+        }
+
+        .table-wrap {
+            overflow-x: auto;
+        }
+
+        .menu-table {
+            width: 100%;
+            max-width: 840px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        .menu-table caption {
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .menu-table th,
+        .menu-table td {
+            padding: 10px;
+            border: 1px solid #555;
+            vertical-align: middle;
+        }
+
+        .drink-image {
+            color: #fff;
+            font-weight: 700;
+            background-position: center;
+            background-size: cover;
+            text-shadow: 0 1px 2px #000;
+        }
+
+        .green-tea {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url("../img/green tea.jpg");
+        }
+
+        .black-tea {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url("../img/black tea.jpg");
+        }
+
+        .fruit-tea {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url("../img/fruit.jpg");
+        }
+
+        @media (max-width: 640px) {
+            .image-row {
+                grid-template-columns: 1fr;
+            }
+
+            .image-row img {
+                height: auto;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div style="width: 1250px; margin: auto; padding-top: 10px;">
-        <h1 style="text-align: center; background-color: red; color: white">THE TEA MENU</h1>
-        <hr style="height: 3px; background-color: #808080;">
-        <h3>List of tea</h3>
-        <ol style="font-size: larger;">
-            <li>Black coffee</li>
-            <li>White coffee</li>
-            <li>Pink coffee</li>
-            <li>Yellow coffee</li>
-        </ol>
-        <hr style="height: 3px; background-color: #808080;">
-        <a href="../index.html">Click để về trang Index</a><br>
-        <a href="../coffee/coffee.html">Click để tới trang Coffee</a>
-        <hr style="height: 3px; background-color: #808080;">
-        <img src="../img/tea.png" width="40%" border="10">
-        <img src="../img/milk tea.jpg" width="40%" border="10">
-        <p style="text-align: justify; font-size: x-large; color: red;">
-            Coffee is a brewed drink prepared from roasted coffee beans, which are the seeds of berries from the Coffea
-            plant. The genus Coffea is native to tropical Africa (specifically having its origin in Ethiopia and Sudan)
-            and Madagascar, the Comoros, Mauritius, and Réunion in the Indian Ocean. The plant was exported from Africa
-            to countries around the world. Coffee plants are now cultivated in over 70 countries, primarily in the
-            equatorial regions of the Americas, Southeast Asia, India, and Africa. The two most commonly grown are
-            arabica and robusta. Once ripe, coffee berries are picked, processed, and dried. Dried coffee seeds
-            (referred to as beans) are roasted to varying degrees, depending on the desired flavor. Roasted beans are
-            ground and brewed with near-boiling water to produce coffee as a beverage. Coffee is a brewed drink prepared
-            from roasted coffee beans, which are the seeds of berries from the Coffea plant. The genus Coffea is native
-            to tropical Africa (specifically having its origin in Ethiopia and Sudan) and Madagascar, the Comoros,
-            Mauritius, and Réunion in the Indian Ocean. The plant was exported from Africa to countries around the
-            world. Coffee plants are now cultivated in over 70 countries, primarily in the equatorial regions of the
-            Americas, Southeast Asia, India, and Africa. The two most commonly grown are arabica and robusta. Once ripe,
-            coffee berries are picked, processed, and dried. Dried coffee seeds (referred to as beans) are roasted to
-            varying degrees, depending on the desired flavor. Roasted beans are ground and brewed with near-boiling
-            water to produce coffee as a beverage.
+    <!-- Main wrapper for all tea menu content. -->
+    <main class="page" aria-labelledby="page-title">
+        <h1 class="page-title" id="page-title">THE TEA MENU</h1>
+
+        <hr class="divider">
+
+        <!-- List section: quick overview of featured tea options. -->
+        <section aria-labelledby="tea-list-title">
+            <h2 id="tea-list-title">List of tea</h2>
+            <ol class="drink-list">
+                <li>Green tea</li>
+                <li>Black tea</li>
+                <li>Milk tea</li>
+                <li>Fruit tea</li>
+            </ol>
+        </section>
+
+        <hr class="divider">
+
+        <!-- Navigation section: links back to the index and sideways to the coffee menu. -->
+        <nav class="page-nav" aria-label="Tea menu navigation">
+            <a href="../index.html">Click để về trang Index</a>
+            <a href="../coffee/coffee.html">Click để tới trang Coffee</a>
+        </nav>
+
+        <hr class="divider">
+
+        <!-- Image gallery gives a visual preview of tea drinks before the pricing table. -->
+        <div class="image-row" aria-label="Tea menu images">
+            <img src="../img/tea.png" alt="Fresh tea drink">
+            <img src="../img/milk tea.jpg" alt="Milk tea drink">
+        </div>
+
+        <p class="intro">
+            Tea is an aromatic beverage made by pouring hot water over cured or fresh leaves. Green tea, black tea,
+            oolong tea, and white tea are processed in different ways, which gives each tea its own color, aroma, and
+            flavor. Tea can be served hot or cold and can be combined with milk, fruit, herbs, or sugar to create many
+            different drinks.
         </p>
-        <table style="text-align: center;" width="800" height="500" border="1" align="center" cellpadding="5">
-            <tr>
-                <td colspan="2"><b>Name</b></td>
-                <td><b>Type</b></td>
-                <td><b>Price</b></td>
-            </tr>
-            <tr>
-                <td style="text-align: right;" rowspan="2" colspan="2" background="../img/green tea.jpg"> Green Tea</td>
-                <td style="text-align: left;">Hot</td>
-                <td rowspan="2">25.000 VNĐ</td>
-            </tr>
-            <tr>
-                <td style="text-align: right;">Cold</td>
-            </tr>
-            <tr>
-                <td rowspan="2" colspan="2" background="../img/black tea.jpg"> Black Tea</td>
-                <td style="text-align: left;">Hot</td>
-                <td rowspan="2">28.000 VNĐ</td>
-            </tr>
-            <tr>
-                <td style="text-align: right;">Cold</td>
-            </tr>
-            <tr>
-                <td rowspan="3" background="../img/fruit.jpg">Fruit Tea</td>
-                <td style="text-align: left;">Lemon Tea</td>
-                <td rowspan="3">Cold (only)</td>
-                <td>30.000 VNĐ</td>
-            </tr>
-            <tr>
-                <td style="text-align: left;">Apple Tea</td>
-                <td rowspan="2">35.000 VNĐ</td>
-            </tr>
-            <tr>
-                <td style="text-align: left;">Peach Tea</td>
-            </tr>
-        </table>
-    </div>
+
+        <!-- Pricing table: grouped by tea family, serving type, and price. -->
+        <div class="table-wrap">
+            <table class="menu-table">
+                <caption>Tea price list</caption>
+                <thead>
+                    <tr>
+                        <th scope="col" colspan="2">Name</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="drink-image green-tea" scope="rowgroup" rowspan="2" colspan="2">Green Tea</th>
+                        <td>Hot</td>
+                        <td rowspan="2">25.000 VNĐ</td>
+                    </tr>
+                    <tr>
+                        <td>Cold</td>
+                    </tr>
+                    <tr>
+                        <th class="drink-image black-tea" scope="rowgroup" rowspan="2" colspan="2">Black Tea</th>
+                        <td>Hot</td>
+                        <td rowspan="2">28.000 VNĐ</td>
+                    </tr>
+                    <tr>
+                        <td>Cold</td>
+                    </tr>
+                    <tr>
+                        <th class="drink-image fruit-tea" scope="rowgroup" rowspan="3">Fruit Tea</th>
+                        <td>Lemon Tea</td>
+                        <td rowspan="3">Cold only</td>
+                        <td>30.000 VNĐ</td>
+                    </tr>
+                    <tr>
+                        <td>Apple Tea</td>
+                        <td rowspan="2">35.000 VNĐ</td>
+                    </tr>
+                    <tr>
+                        <td>Peach Tea</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
 </body>
 
 </html>

@@ -1,4 +1,12 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# Summary: Normalize text files while keeping binary image assets managed by Git LFS.
+* text=auto eol=lf
+
+# Source and documentation files should stay readable in diffs.
+*.html text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# Image files are binary assets, so they should not be normalized as text.
 *.jpg filter=lfs diff=lfs merge=lfs -text
 *.png filter=lfs diff=lfs merge=lfs -text

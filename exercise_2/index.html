@@ -1,55 +1,143 @@
 <!DOCTYPE html>
-<html>
+<!--
+    Summary:
+    - Trang chính của bài exercise_2 giới thiệu Coffee Shop.
+    - Có menu điều hướng nội bộ đến Coffee và Tea.
+    - Mỗi section có đoạn mô tả, ảnh minh họa và liên kết sang trang menu chi tiết.
+-->
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to the Coffee Shop</title>
+
+    <style>
+        /* Shared page styles keep the HTML readable and avoid repeated inline CSS. */
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            color: #222;
+            background-color: #fffdf9;
+        }
+
+        .page {
+            width: min(100% - 32px, 1200px);
+            margin: 0 auto;
+            padding: 16px 0 40px;
+        }
+
+        .page-title {
+            margin: 0;
+            padding: 12px 16px;
+            text-align: center;
+            color: #fff;
+            background-color: #a52a2a;
+        }
+
+        .divider {
+            height: 3px;
+            margin: 16px 0;
+            border: 0;
+            background-color: #808080;
+        }
+
+        .jump-links,
+        .menu-link {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .jump-links a,
+        .menu-link a {
+            color: #8f2f24;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .jump-links a:hover,
+        .menu-link a:hover {
+            text-decoration: underline;
+        }
+
+        .section-title {
+            text-align: center;
+        }
+
+        .coffee-text {
+            color: #8f2f24;
+        }
+
+        .tea-text {
+            text-align: right;
+            color: #1d4ed8;
+        }
+
+        .feature-image {
+            display: block;
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            margin-top: 12px;
+        }
+
+        @media (max-width: 640px) {
+            .tea-text {
+                text-align: left;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div style="width: 1550px; margin: auto; padding-top: 10px;">
-        <h1 style="text-align: center; background-color: #A52A2A; color: white">Welcome to the Coffee Shop</h1>
-        <hr style="height: 3px; background-color: #808080;">
-        <a href="#coffee">Click để tìm hiểu về coffee</a><br>
-        <a href="#tea">Click để tìm hiểu về tea</a>
-        <hr style="height: 3px; background-color: #808080;">
-        <h3 id="coffee" style="text-align: center;">Coffee</h3>
-        <p style="color: #A52A2A;">
-            Coffee is a brewed drink prepared from roasted coffee beans, which are the seeds of berries from the Coffea
-            plant.<br>
-            The genus Coffea is native to tropical Africa (specifically having its origin in Ethiopia and Sudan) and
-            Madagascar, the Comoros, Mauritius, and Réunion in the Indian Ocean.<br>
-            The plant was exported from Africa to countries around the world.<br>
-            Coffee plants are now cultivated in over 70 countries, primarily in the equatorial regions of the Americas,
-            Southeast Asia, India, and Africa.<br>
-            The two most commonly grown are arabica and robusta.<br>
-            Once ripe, coffee berries are picked, processed, and dried.<br>
-            Dried coffee seeds (referred to as beans) are roasted to varying degrees, depending on the desired
-            flavor.<br>
-            Roasted beans are ground and brewed with near-boiling water to produce coffee as a beverage.<br>
-        </p>
-        <hr style="height: 3px; background-color: #808080;">
-        <a href="./coffee/coffee.html">View coffee menu</a>
-        <img src="./img/coffee.jpg" width="1550">
-        <hr style="height: 3px; background-color: #808080;">
-        <h3 id="tea" style="text-align: center;">Tea</h3>
-        <p style="text-align: right; color: blue;">
-            Coffee is a brewed drink prepared from roasted coffee beans, which are the seeds of berries from the Coffea
-            plant.<br>
-            The genus Coffea is native to tropical Africa (specifically having its origin in Ethiopia and Sudan) and
-            Madagascar, the Comoros, Mauritius, and Réunion in the Indian Ocean.<br>
-            The plant was exported from Africa to countries around the world.<br>
-            Coffee plants are now cultivated in over 70 countries, primarily in the equatorial regions of the Americas,
-            Southeast Asia, India, and Africa.<br>
-            The two most commonly grown are arabica and robusta.<br>
-            Once ripe, coffee berries are picked, processed, and dried.<br>
-            Dried coffee seeds (referred to as beans) are roasted to varying degrees, depending on the desired
-            flavor.<br>
-            Roasted beans are ground and brewed with near-boiling water to produce coffee as a beverage.<br>
-        </p>
-        <hr style="height: 3px; background-color: #808080;">
-        <a href="./tea/tea.html">View tea menu</a>
-        <img src="./img/tea.png" width="1550">
-    </div>
+    <!-- Page shell: contains navigation plus the Coffee and Tea preview sections. -->
+    <main class="page" aria-labelledby="page-title">
+        <h1 class="page-title" id="page-title">Welcome to the Coffee Shop</h1>
+
+        <hr class="divider">
+
+        <!-- Internal navigation helps users jump to the topic they want to read first. -->
+        <nav class="jump-links" aria-label="Page sections">
+            <a href="#coffee">Click để tìm hiểu về Coffee</a>
+            <a href="#tea">Click để tìm hiểu về Tea</a>
+        </nav>
+
+        <hr class="divider">
+
+        <!-- Coffee preview with a link to the complete coffee menu. -->
+        <section aria-labelledby="coffee-title" id="coffee">
+            <h2 class="section-title" id="coffee-title">Coffee</h2>
+            <p class="coffee-text">
+                Coffee is a brewed drink prepared from roasted coffee beans, which are the seeds of berries from the
+                Coffea plant. Coffee plants are now cultivated in over 70 countries, primarily in equatorial regions of
+                the Americas, Southeast Asia, India, and Africa. Once ripe, coffee berries are picked, processed, dried,
+                roasted, ground, and brewed with near-boiling water to produce coffee as a beverage.
+            </p>
+            <p class="menu-link">
+                <a href="./coffee/coffee.html">View coffee menu</a>
+            </p>
+            <img class="feature-image" src="./img/coffee.jpg" alt="Cup of coffee on a table">
+        </section>
+
+        <hr class="divider">
+
+        <!-- Tea preview with a link to the complete tea menu. -->
+        <section aria-labelledby="tea-title" id="tea">
+            <h2 class="section-title" id="tea-title">Tea</h2>
+            <p class="tea-text">
+                Tea is an aromatic beverage made by pouring hot water over cured or fresh leaves. Green tea, black tea,
+                oolong tea, and white tea are processed differently, creating distinct colors and flavors. Tea can be
+                served hot or cold and is often combined with milk, fruit, herbs, or sugar.
+            </p>
+            <p class="menu-link">
+                <a href="./tea/tea.html">View tea menu</a>
+            </p>
+            <img class="feature-image" src="./img/tea.png" alt="Tea drink with fresh ingredients">
+        </section>
+    </main>
 </body>
 
 </html>

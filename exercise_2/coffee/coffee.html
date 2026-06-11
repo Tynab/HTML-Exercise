@@ -1,82 +1,253 @@
 <!DOCTYPE html>
-<html>
+<!--
+    Summary:
+    - Trang menu Coffee hiển thị danh sách đồ uống, hình ảnh và bảng giá.
+    - Bảng được chia thành thead/tbody để dễ đọc và hỗ trợ accessibility tốt hơn.
+    - CSS nội bộ thay thế các thuộc tính HTML cũ như width, border, align.
+-->
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Coffee Menu</title>
+
+    <style>
+        /* Page foundation: responsive width, readable text, and consistent spacing. */
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            color: #222;
+            background-color: #fffdf9;
+        }
+
+        .page {
+            width: min(100% - 32px, 1100px);
+            margin: 0 auto;
+            padding: 16px 0 40px;
+        }
+
+        .page-title {
+            margin: 0;
+            padding: 12px 16px;
+            text-align: center;
+            color: #fff;
+            background-color: #b91c1c;
+        }
+
+        .divider {
+            height: 3px;
+            margin: 16px 0;
+            border: 0;
+            background-color: #808080;
+        }
+
+        .drink-list {
+            font-size: 1.15rem;
+        }
+
+        .page-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .page-nav a {
+            color: #8f2f24;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .page-nav a:hover {
+            text-decoration: underline;
+        }
+
+        .image-row {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+            align-items: stretch;
+        }
+
+        .image-row img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        .intro {
+            text-align: center;
+            color: #1d4ed8;
+        }
+
+        .table-wrap {
+            overflow-x: auto;
+        }
+
+        .menu-table {
+            width: 100%;
+            max-width: 840px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        .menu-table caption {
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .menu-table th,
+        .menu-table td {
+            padding: 10px;
+            border: 1px solid #555;
+            vertical-align: middle;
+        }
+
+        .row-label {
+            font-weight: 700;
+            background-color: #f5f5f5;
+        }
+
+        .highlight-violet {
+            background-color: violet;
+        }
+
+        .highlight-hot {
+            background-color: tomato;
+        }
+
+        .highlight-cold {
+            background-color: dodgerblue;
+        }
+
+        .highlight-green {
+            background-color: #22c55e;
+        }
+
+        .highlight-gold {
+            background-color: gold;
+        }
+
+        .highlight-orange {
+            background-color: orange;
+        }
+
+        .highlight-dark-orange {
+            background-color: darkorange;
+        }
+
+        .highlight-chocolate {
+            background-color: chocolate;
+            color: #fff;
+        }
+
+        @media (max-width: 640px) {
+            .image-row {
+                grid-template-columns: 1fr;
+            }
+
+            .image-row img {
+                height: auto;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div style="width: 1250px; margin: auto; padding-top: 10px;">
-        <h1 style="text-align: center; background-color: red; color: white">THE COFFEE MENU</h1>
-        <hr style="height: 3px; background-color: #808080;">
-        <h3>List of coffee</h3>
-        <ul style="font-size: larger;" type="circle">
-            <li>Black coffee</li>
-            <li>White coffee</li>
-            <li>Pink coffee</li>
-            <li>Yellow coffee</li>
-        </ul>
-        <hr style="height: 3px; background-color: #808080;">
-        <a href="../index.html">Click để về trang Index</a><br>
-        <a href="../tea/tea.html">Click để tới trang Tea</a>
-        <hr style="height: 3px; background-color: #808080;">
-        <img src="../img/milk coffee.png" width="40%">
-        <img src="../img/fruit.jpg" width="40%">
-        <p style="text-align: center; color: blue;">
+    <!-- Main wrapper for all coffee menu content. -->
+    <main class="page" aria-labelledby="page-title">
+        <h1 class="page-title" id="page-title">THE COFFEE MENU</h1>
+
+        <hr class="divider">
+
+        <!-- List section: quick overview of featured coffee options. -->
+        <section aria-labelledby="coffee-list-title">
+            <h2 id="coffee-list-title">List of coffee</h2>
+            <ul class="drink-list">
+                <li>Black coffee</li>
+                <li>Vietnamese coffee with milk</li>
+                <li>Bac xiu</li>
+                <li>Cappuccino</li>
+            </ul>
+        </section>
+
+        <hr class="divider">
+
+        <!-- Navigation section: links back to the index and sideways to the tea menu. -->
+        <nav class="page-nav" aria-label="Coffee menu navigation">
+            <a href="../index.html">Click để về trang Index</a>
+            <a href="../tea/tea.html">Click để tới trang Tea</a>
+        </nav>
+
+        <hr class="divider">
+
+        <!-- Image gallery gives a visual preview of drinks before the pricing table. -->
+        <div class="image-row" aria-label="Coffee menu images">
+            <img src="../img/milk coffee.png" alt="Vietnamese milk coffee">
+            <img src="../img/fruit.jpg" alt="Fruit drink served in a glass">
+        </div>
+
+        <p class="intro">
             Coffee is a brewed drink prepared from roasted coffee beans, which are the seeds of berries from the Coffea
-            plant.<br>
-            The genus Coffea is native to tropical Africa (specifically having its origin in Ethiopia and Sudan) and
-            Madagascar, the Comoros, Mauritius, and Réunion in the Indian Ocean.<br>
-            The plant was exported from Africa to countries around the world.<br>
-            Coffee plants are now cultivated in over 70 countries, primarily in the equatorial regions of the Americas,
-            Southeast Asia, India, and Africa.<br>
-            <b>The two most commonly grown are arabica and robusta.</b><br>
-            Once ripe, coffee berries are picked, processed, and dried.<br>
-            Dried coffee seeds (referred to as beans) are roasted to varying degrees, depending on the desired
-            flavor.<br>
-            Roasted beans are ground and brewed with near-boiling water to produce coffee as a beverage.<br>
+            plant. The two most commonly grown coffee beans are <strong>arabica and robusta</strong>. Once ripe, coffee
+            berries are picked, processed, dried, roasted, ground, and brewed with near-boiling water to produce coffee
+            as a beverage.
         </p>
-        <table style="text-align: center;" width="800" height="500" border="1" align="center" cellpadding="5">
-            <tr>
-                <td colspan="2"><b>Name</b></td>
-                <td><b>Type</b></td>
-                <td><b>Price</b></td>
-            </tr>
-            <tr style="text-align: left;">
-                <td style="text-align: center;" rowspan="4">Traditional Coffee</td>
-                <td style="background-color: violet;" rowspan="2">Vietnamese Coffee Phin</td>
-                <td style="background-color: tomato">Hot</td>
-                <td style="background-color: tomato;">28.000 VNĐ</td>
-            </tr>
-            <tr>
-                <td style="text-align: right; background-color: dodgerblue;">Cold</td>
-                <td style="text-align: right; background-color: dodgerblue;">30.000 VNĐ</td>
-            </tr>
-            <tr style="text-align: right;">
-                <td style="background-color: green;" rowspan="2">Vietnamese Coffee with Milk<br>Bac Xiu - Vietnamese
-                    Coffee with (much) Milk</td>
-                <td style="text-align: left; background-color: tomato">Hot</td>
-                <td style="text-align: left; background-color: tomato;">28.000 VNĐ</td>
-            </tr>
-            <tr>
-                <td style="background-color: dodgerblue;">Cold</td>
-                <td style="background-color: dodgerblue;">30.000 VNĐ</td>
-            </tr>
-            <tr>
-                <td rowspan="3">Espresso</td>
-                <td style="background-color: gold;">Traditional Espresso</td>
-                <td style="background-color: orange;" rowspan="3">Hot (only)</td>
-                <td style="background-color: darkorange;">40.000 VNĐ</td>
-            </tr>
-            <tr>
-                <td style="text-align: left; background-color: violet;">Espresso Machiato</td>
-                <td style="background-color: chocolate;" rowspan="2">45.000 VNĐ</td>
-            </tr>
-            <tr>
-                <td style="text-align: right; background-color: green;">Cappuccino</td>
-            </tr>
-        </table>
-    </div>
+
+        <!-- Pricing table: grouped by drink family, serving type, and price. -->
+        <div class="table-wrap">
+            <table class="menu-table">
+                <caption>Coffee price list</caption>
+                <thead>
+                    <tr>
+                        <th scope="col" colspan="2">Name</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="row-label" scope="rowgroup" rowspan="4">Traditional Coffee</th>
+                        <td class="highlight-violet" rowspan="2">Vietnamese Coffee Phin</td>
+                        <td class="highlight-hot">Hot</td>
+                        <td class="highlight-hot">28.000 VNĐ</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight-cold">Cold</td>
+                        <td class="highlight-cold">30.000 VNĐ</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight-green" rowspan="2">
+                            Vietnamese Coffee with Milk<br>
+                            Bac Xiu - Vietnamese Coffee with much Milk
+                        </td>
+                        <td class="highlight-hot">Hot</td>
+                        <td class="highlight-hot">28.000 VNĐ</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight-cold">Cold</td>
+                        <td class="highlight-cold">30.000 VNĐ</td>
+                    </tr>
+                    <tr>
+                        <th class="row-label" scope="rowgroup" rowspan="3">Espresso</th>
+                        <td class="highlight-gold">Traditional Espresso</td>
+                        <td class="highlight-orange" rowspan="3">Hot only</td>
+                        <td class="highlight-dark-orange">40.000 VNĐ</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight-violet">Espresso Macchiato</td>
+                        <td class="highlight-chocolate" rowspan="2">45.000 VNĐ</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight-green">Cappuccino</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
 </body>
 
 </html>

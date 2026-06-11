@@ -1,48 +1,101 @@
 <!DOCTYPE html>
-<html>
+<!--
+    Summary:
+    - Trang giới thiệu Coffee Shop ở mức cơ bản.
+    - Nội dung được chia thành hai section Coffee và Tea.
+    - CSS đặt trong file để bài tập có thể mở trực tiếp trên trình duyệt.
+-->
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to the Coffee Shop</title>
+
+    <style>
+        /* Base layout: keeps the page centered and responsive on smaller screens. */
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            color: #222;
+            background-color: #fffdf9;
+        }
+
+        .page {
+            width: min(100% - 32px, 1200px);
+            margin: 0 auto;
+            padding: 16px 0 32px;
+        }
+
+        .page-title {
+            margin: 0;
+            padding: 12px 16px;
+            text-align: center;
+            color: #fff;
+            background-color: #a52a2a;
+        }
+
+        .divider {
+            height: 3px;
+            margin: 16px 0;
+            border: 0;
+            background-color: #808080;
+        }
+
+        .section-title {
+            text-align: center;
+        }
+
+        .coffee-text {
+            color: #8f2f24;
+        }
+
+        .tea-text {
+            text-align: right;
+            color: #1d4ed8;
+        }
+
+        @media (max-width: 640px) {
+            .tea-text {
+                text-align: left;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div style="width: 1550px; margin: auto; padding-top: 10px;">
-        <h1 style="text-align: center; background-color: #A52A2A; color: white">Welcome to the Coffee Shop</h1>
-        <hr style="height: 3px; background-color: #808080;">
-        <hr style="height: 3px; background-color: #808080;">
-        <h3 style="text-align: center;">Coffee</h3>
-        <p style="color: #A52A2A;">
-            Coffee is a brewed drink prepared from roasted coffee beans, which are the seeds of berries from the Coffea
-            plant.<br>
-            The genus Coffea is native to tropical Africa (specifically having its origin in Ethiopia and Sudan) and
-            Madagascar, the Comoros, Mauritius, and Réunion in the Indian Ocean.<br>
-            The plant was exported from Africa to countries around the world.<br>
-            Coffee plants are now cultivated in over 70 countries, primarily in the equatorial regions of the Americas,
-            Southeast Asia, India, and Africa.<br>
-            The two most commonly grown are arabica and robusta.<br>
-            Once ripe, coffee berries are picked, processed, and dried.<br>
-            Dried coffee seeds (referred to as beans) are roasted to varying degrees, depending on the desired
-            flavor.<br>
-            Roasted beans are ground and brewed with near-boiling water to produce coffee as a beverage.<br>
-        </p>
-        <hr style="height: 3px; background-color: #808080;">
-        <hr style="height: 3px; background-color: #808080;">
-        <h3 style="text-align: center;">Tea</h3>
-        <p style="text-align: right; color: blue;">
-            Coffee is a brewed drink prepared from roasted coffee beans, which are the seeds of berries from the Coffea
-            plant.<br>
-            The genus Coffea is native to tropical Africa (specifically having its origin in Ethiopia and Sudan) and
-            Madagascar, the Comoros, Mauritius, and Réunion in the Indian Ocean.<br>
-            The plant was exported from Africa to countries around the world.<br>
-            Coffee plants are now cultivated in over 70 countries, primarily in the equatorial regions of the Americas,
-            Southeast Asia, India, and Africa.<br>
-            The two most commonly grown are arabica and robusta.<br>
-            Once ripe, coffee berries are picked, processed, and dried.<br>
-            Dried coffee seeds (referred to as beans) are roasted to varying degrees, depending on the desired
-            flavor.<br>
-            Roasted beans are ground and brewed with near-boiling water to produce coffee as a beverage.<br>
-        </p>
-    </div>
+    <!-- Main content wrapper for the whole exercise page. -->
+    <main class="page" aria-labelledby="page-title">
+        <h1 class="page-title" id="page-title">Welcome to the Coffee Shop</h1>
+
+        <hr class="divider">
+
+        <!-- Coffee section: short introduction about coffee beans and brewing. -->
+        <section aria-labelledby="coffee-title">
+            <h2 class="section-title" id="coffee-title">Coffee</h2>
+            <p class="coffee-text">
+                Coffee is a brewed drink prepared from roasted coffee beans, which are the seeds of berries from the
+                Coffea plant. The genus Coffea is native to tropical Africa and islands in the Indian Ocean. Coffee
+                plants are now cultivated in over 70 countries, primarily in equatorial regions of the Americas,
+                Southeast Asia, India, and Africa. Once ripe, coffee berries are picked, processed, dried, roasted,
+                ground, and brewed with near-boiling water to produce coffee as a beverage.
+            </p>
+        </section>
+
+        <hr class="divider">
+
+        <!-- Tea section: separate tea content instead of repeating the coffee paragraph. -->
+        <section aria-labelledby="tea-title">
+            <h2 class="section-title" id="tea-title">Tea</h2>
+            <p class="tea-text">
+                Tea is an aromatic beverage made by pouring hot water over cured or fresh leaves. Green tea, black tea,
+                oolong tea, and white tea all come from the same tea plant, but they are processed in different ways.
+                Tea can be served hot or cold, enjoyed plain, or combined with milk, fruit, herbs, and sugar depending
+                on local taste.
+            </p>
+        </section>
+    </main>
 </body>
 
 </html>
