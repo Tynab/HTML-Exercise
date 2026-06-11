@@ -1,27 +1,84 @@
 <!DOCTYPE html>
+<!--
+    Summary:
+    - Bài tập tổng hợp tạo một khối nội dung ngắn có ảnh, tiêu đề và mô tả.
+    - Trang dùng HTML đầy đủ với lang, charset, viewport và alt text cho ảnh.
+    - CSS đặt trong file để giữ bài tập tự chạy khi mở trực tiếp.
+-->
+<html lang="vi">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bài Tập Tổng Hợp</title>
+
+    <style>
+        /* Page layout: centers the summary panel and keeps it readable on mobile. */
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.5;
+            color: #fff;
+            background-color: #f4f4f5;
+        }
+
+        .page {
+            min-height: 100vh;
+            display: grid;
+            place-items: start center;
+            padding: 16px;
+            box-sizing: border-box;
+        }
+
+        .summary-panel {
+            width: min(100%, 340px);
+            text-align: justify;
+            background-color: #1d4ed8;
+        }
+
+        .summary-panel img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .summary-content {
+            padding: 10px;
+        }
+
+        .summary-title {
+            margin: 0 0 12px;
+            color: #ff4040;
+        }
+
+        .summary-description {
+            margin: 0 0 16px;
+            font-size: 1.35rem;
+        }
+
+        .detail-title {
+            margin: 0;
+            color: #22c55e;
+        }
+    </style>
 </head>
 
 <body>
-    <div style="padding-top: 10px;">
-        <div style="text-align: justify; width: 340px; margin: auto; background-color: blue;">
-            <img src=".\img\bg.jpg" width="340px">
-            <div style="padding: 10px;">
-                <div style="color: red;">
-                    <h1>Tiêu đề</h1>
-                </div>
-                <div style="font-size: x-large; color: white;">
-                    <p>GF interior design tự hào mang đến hàng loạt các thiết kế công trình văn phòng xuất sắc tại Việt
-                        Nam</p>
-                </div>
-                <div style="color: green;">
-                    <h2>Chi tiết</h2>
-                </div>
+    <!-- Single summary block for the interior design content exercise. -->
+    <main class="page">
+        <article class="summary-panel" aria-labelledby="summary-title">
+            <img src="./img/bg.jpg" alt="Không gian văn phòng được thiết kế nội thất hiện đại">
+
+            <div class="summary-content">
+                <h1 class="summary-title" id="summary-title">Tiêu đề</h1>
+                <p class="summary-description">
+                    GF interior design tự hào mang đến hàng loạt các thiết kế công trình văn phòng xuất sắc tại Việt
+                    Nam.
+                </p>
+                <h2 class="detail-title">Chi tiết</h2>
             </div>
-        </div>
-    </div>
+        </article>
+    </main>
 </body>
 
 </html>
